@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>151352778842-l2rem0dr99vvcs3cv48mdv4m2b4dh2k7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.151352778842-l2rem0dr99vvcs3cv48mdv4m2b4dh2k7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC3hCqOMCuu-JyfxkSakWNRoso6j_VXgk8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>151352778842</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.aatech.Fitness-eBook-Marketplace</string>
+	<key>PROJECT_ID</key>
+	<string>udemy-for-fitness-plans</string>
+	<key>STORAGE_BUCKET</key>
+	<string>udemy-for-fitness-plans.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:151352778842:ios:d638b6bdb42fc948</string>
+	<key>DATABASE_URL</key>
+	<string>https://udemy-for-fitness-plans.firebaseio.com</string>
+</dict>
+</plist>
