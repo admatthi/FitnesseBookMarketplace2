@@ -40,7 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         ref = Database.database().reference()
-
+        purchases = RCPurchases(apiKey: "jLMuZLatPMLmTSoFKkaVNnTyXyAqYuaP")
+        
+        purchases!.delegate = self
         if Auth.auth().currentUser == nil {
             
 //            let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -54,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }  else {
             
-//            uid = (Auth.auth().currentUser?.uid)!
+            uid = (Auth.auth().currentUser?.uid)!
 //            
 //            queryforinfo()
 //            
@@ -95,14 +97,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if Auth.auth().currentUser != nil {
             
-            ref!.child("Users").child(uid).child("Purchased").child(selectedid).updateChildValues(["Title" : selectedtitle, "Author" : selectedauthor, "Price" : selectedprice])
+            ref!.child("Users").child(uid).child("Purchased").child(selectedid).updateChildValues(["Title" : selectedtitle, "Author" : selectedauthor, "Price" : selectedprice, "Link" : selectedlink, "Image" : selectedimagelink])
             
             
             var tabBar: UITabBarController = self.window?.rootViewController as! UITabBarController
             
             
+            
             tabBar.selectedIndex = 0
             
+           
+
         } else {
             
            
@@ -151,5 +156,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: RCPurchasesDelegate {
+    func purchases(_ purchases: RCPurchases, completedTransaction transaction: SKPaymentTransaction, withUpdatedInfo purchaserInfo: RCPurchaserInfo) {
+        
+        self.purchasesdelegate?.purchaseCompleted(product: transaction.payment.productIdentifier)
+        
+        didpurchase = true
+        
+        print("purchased")
+        tryingtopurchase  = true
+        letsgo()
+        
+    }
+    
+    func purchases(_ purchases: RCPurchases, receivedUpdatedPurchaserInfo purchaserInfo: RCPurchaserInfo) {
+        //        handlePurchaserInfo(purchaserInfo)
+        
+        print(purchaserInfo)
+        
+    }
+    
+    func purchases(_ purchases: RCPurchases, failedToUpdatePurchaserInfoWithError error: Error) {
+        print(error)
+        
+        tryingtopurchase = false
+    }
+    
+    func purchases(_ purchases: RCPurchases, failedTransaction transaction: SKPaymentTransaction, withReason failureReason: Error) {
+        print(failureReason)
+        
+        tryingtopurchase = false
+    }
+    
+    func purchases(_ purchases: RCPurchases, restoredTransactionsWith purchaserInfo: RCPurchaserInfo) {
+        //        handlePurchaserInfo(purchaserInfo)
+        
+        print("restored")
+        tryingtopurchase  = true
+        letsgo()
+        
+        
+    }
+    
+    func purchases(_ purchases: RCPurchases, failedToRestoreTransactionsWithError error: Error) {
+        print(error)
+    }
+}
 
 

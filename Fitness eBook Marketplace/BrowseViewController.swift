@@ -20,6 +20,9 @@ var reviews = [String:String]()
 var authors = [String:String]()
 var images = [String:UIImage]()
 var times = [String:String]()
+var links = [String:String]()
+var prices = [String:String]()
+var imagelinks = [String:String]()
 
 var selectedid = String()
 var selectedprice = String()
@@ -29,6 +32,9 @@ var selectedimage = UIImage()
 var selectedauthor = String()
 var ref: DatabaseReference?
 var selectedgenre = String()
+var selectedlink = String()
+
+var selectedimagelink = String()
 
 class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
  
@@ -43,7 +49,7 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
         var screenWidth = screenSize.width
         var screenHeight = screenSize.height
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 10, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
         layout.itemSize = CGSize(width: screenWidth/2, height: screenWidth/1)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
@@ -81,6 +87,9 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
         titles.removeAll()
         times.removeAll()
         planids.removeAll()
+        links.removeAll()
+        imagelinks.removeAll()
+        prices.removeAll()
         
     ref?.child("Plans").child(selectedgenre).observeSingleEvent(of: .value, with: { (snapshot) in
             
@@ -138,12 +147,17 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
                 }
                 
                 if var author2 = value?["New Price"] as? String {
-                    myprices[each] = author2
+                    prices[each] = author2
                     
                 }
                 
                 if var author2 = value?["Reviews"] as? String {
                     reviews[each] = author2
+                    
+                }
+                
+                if var author2 = value?["Link"] as? String {
+                    links[each] = author2
                     
                 }
                 if var author2 = value?["Title"] as? String {
@@ -157,7 +171,7 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
                     let url = URL(string: profileUrl)
                     let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
                     var selectedimage = UIImage(data: data!)!
-                    
+                    imagelinks[each] = profileUrl
                     images[each] = selectedimage
                     
                     functioncounter += 1
@@ -258,12 +272,16 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
             
             if images.count > 0 {
                 
+                selectedid = planids[indexPath.row]
                 selectedgenre = genres[indexPath.row]
                 selectedimage = images[planids[indexPath.row]]!
                 selectedtitle = titles[planids[indexPath.row]]!
                 selectedauthor = authors[planids[indexPath.row]]!
                 selecteddescription = descriptions[planids[indexPath.row]]!
-                
+                selectedlink = links[planids[indexPath.row]]!
+                selectedreviews = reviews[planids[indexPath.row]]!
+                selectedprice = prices[planids[indexPath.row]]!
+                selectedimagelink = imagelinks[planids[indexPath.row]]!
                 DispatchQueue.main.async {
                     
                     
@@ -292,7 +310,7 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
             cell.titlelabel.text = titles[planids[indexPath.row]]
             cell.reviewcount.text = "(\(reviews[planids[indexPath.row]]!))"
             cell.authorname.text = authors[planids[indexPath.row]]
-            cell.newprice.text = myprices[planids[indexPath.row]]
+            cell.newprice.text = prices[planids[indexPath.row]]
             let attributeString : NSMutableAttributedString =  NSMutableAttributedString(string: "$199.99")
             attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
             

@@ -29,6 +29,7 @@
 		9D5AA56E21E928C600CF1275 /* Fitness_eBook_MarketplaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AA56D21E928C600CF1275 /* Fitness_eBook_MarketplaceUITests.swift */; };
 		9D5AA57C21E92C9E00CF1275 /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AA57B21E92C9E00CF1275 /* BrowseViewController.swift */; };
 		9D5AA57E21E92CF000CF1275 /* PlansCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AA57D21E92CF000CF1275 /* PlansCollectionViewCell.swift */; };
+		9D7836A221F12D440022D2E0 /* ProductOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7836A121F12D440022D2E0 /* ProductOverviewViewController.swift */; };
 		9DCCC56221ED8AD9005E25A8 /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCC56121ED8AD9005E25A8 /* GenreCollectionViewCell.swift */; };
 		9DCCC56421EE4A7E005E25A8 /* CreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCC56321EE4A7E005E25A8 /* CreditCardViewController.swift */; };
 		9DCCC56621EE4A9E005E25A8 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCC56521EE4A9E005E25A8 /* CheckoutViewController.swift */; };
@@ -89,6 +90,7 @@
 		9D5AA56F21E928C600CF1275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D5AA57B21E92C9E00CF1275 /* BrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
 		9D5AA57D21E92CF000CF1275 /* PlansCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansCollectionViewCell.swift; sourceTree = "<group>"; };
+		9D7836A121F12D440022D2E0 /* ProductOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductOverviewViewController.swift; sourceTree = "<group>"; };
 		9DCCC56121ED8AD9005E25A8 /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		9DCCC56321EE4A7E005E25A8 /* CreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardViewController.swift; sourceTree = "<group>"; };
 		9DCCC56521EE4A9E005E25A8 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				9D5AA54D21E928C200CF1275 /* AppDelegate.swift */,
+				9D7836A121F12D440022D2E0 /* ProductOverviewViewController.swift */,
 				9D2B4F7221E95A7B00478414 /* RegisterViewController.swift */,
 				9D306BA621EFBEE4009AD6F8 /* OverviewViewController.swift */,
 				9D5AA54F21E928C200CF1275 /* ViewController.swift */,
@@ -469,6 +472,7 @@
 				9DCCC56421EE4A7E005E25A8 /* CreditCardViewController.swift in Sources */,
 				9D2B4F6521E9500A00478414 /* OverviewTableViewCell.swift in Sources */,
 				9D306BA921EFE9C7009AD6F8 /* PostsTableViewCell.swift in Sources */,
+				9D7836A221F12D440022D2E0 /* ProductOverviewViewController.swift in Sources */,
 				9D306BA721EFBEE4009AD6F8 /* OverviewViewController.swift in Sources */,
 				9D5AA54E21E928C200CF1275 /* AppDelegate.swift in Sources */,
 			);
