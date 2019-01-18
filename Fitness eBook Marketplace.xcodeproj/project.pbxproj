@@ -30,6 +30,7 @@
 		9D5AA57C21E92C9E00CF1275 /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AA57B21E92C9E00CF1275 /* BrowseViewController.swift */; };
 		9D5AA57E21E92CF000CF1275 /* PlansCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AA57D21E92CF000CF1275 /* PlansCollectionViewCell.swift */; };
 		9D7836A221F12D440022D2E0 /* ProductOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7836A121F12D440022D2E0 /* ProductOverviewViewController.swift */; };
+		9D7836A421F15CA50022D2E0 /* ThankYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7836A321F15CA50022D2E0 /* ThankYouViewController.swift */; };
 		9DCCC56221ED8AD9005E25A8 /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCC56121ED8AD9005E25A8 /* GenreCollectionViewCell.swift */; };
 		9DCCC56421EE4A7E005E25A8 /* CreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCC56321EE4A7E005E25A8 /* CreditCardViewController.swift */; };
 		9DCCC56621EE4A9E005E25A8 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCC56521EE4A9E005E25A8 /* CheckoutViewController.swift */; };
@@ -91,6 +92,7 @@
 		9D5AA57B21E92C9E00CF1275 /* BrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
 		9D5AA57D21E92CF000CF1275 /* PlansCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D7836A121F12D440022D2E0 /* ProductOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductOverviewViewController.swift; sourceTree = "<group>"; };
+		9D7836A321F15CA50022D2E0 /* ThankYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankYouViewController.swift; sourceTree = "<group>"; };
 		9DCCC56121ED8AD9005E25A8 /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		9DCCC56321EE4A7E005E25A8 /* CreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardViewController.swift; sourceTree = "<group>"; };
 		9DCCC56521EE4A9E005E25A8 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				9D5AA57D21E92CF000CF1275 /* PlansCollectionViewCell.swift */,
 				9D2B4F6421E9500A00478414 /* OverviewTableViewCell.swift */,
 				9D2B4F6A21E95A3500478414 /* MyPlansViewController.swift */,
+				9D7836A321F15CA50022D2E0 /* ThankYouViewController.swift */,
 				9D2B4F6C21E95A4700478414 /* MyPlansTableViewCell.swift */,
 				9D2B4F6E21E95A5D00478414 /* SettingsViewController.swift */,
 				9D2B4F7021E95A6900478414 /* WelcomeViewController.swift */,
@@ -458,6 +461,7 @@
 				9D2B4F7521E95A8500478414 /* SignInViewController.swift in Sources */,
 				9D5AA57C21E92C9E00CF1275 /* BrowseViewController.swift in Sources */,
 				9D2B4F6921E9511E00478414 /* ReviewTableViewCell.swift in Sources */,
+				9D7836A421F15CA50022D2E0 /* ThankYouViewController.swift in Sources */,
 				9D2B4F6F21E95A5D00478414 /* SettingsViewController.swift in Sources */,
 				9D5AA57E21E92CF000CF1275 /* PlansCollectionViewCell.swift in Sources */,
 				9D5AA55021E928C200CF1275 /* ViewController.swift in Sources */,

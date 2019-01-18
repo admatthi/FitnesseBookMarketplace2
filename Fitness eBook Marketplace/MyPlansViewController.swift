@@ -60,6 +60,11 @@ class MyPlansViewController: UIViewController, UITableViewDataSource, UITableVie
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.impactOccurred()
         
+        if let url = NSURL(string: myplanlinks[myplanids[selected!]]!
+            ) {
+            UIApplication.shared.openURL(url as URL)
+        }
+        
         DispatchQueue.main.async {
             let url = URL(string: myplanlinks[myplanids[selected!]]!)
             let pdfData = try? Data.init(contentsOf: url!)
