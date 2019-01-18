@@ -100,11 +100,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ref!.child("Users").child(uid).child("Purchased").child(selectedid).updateChildValues(["Title" : selectedtitle, "Author" : selectedauthor, "Price" : selectedprice, "Link" : selectedlink, "Image" : selectedimagelink])
             
             
-            var tabBar: UITabBarController = self.window?.rootViewController as! UITabBarController
+            let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             
             
-            
-            tabBar.selectedIndex = 0
+            let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "Thank You") as UIViewController
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = initialViewControlleripad
+            self.window?.makeKeyAndVisible()
             
            
 
