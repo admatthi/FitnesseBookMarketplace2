@@ -19,40 +19,58 @@ var myplanlinks = [String:String]()
 
 var uid = String()
 
-class MyPlansViewController: UIViewController, UITableViewDataSource, UITableViewDelegate    {
+class MyPlansViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout    {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return myplanimages.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyPlans", for: indexPath) as! MyPlansTableViewCell
-        if myplanimages.count > indexPath.row {
-            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Plans", for: indexPath) as! PlansCollectionViewCell
+        
         errorlabel.alpha = 0
-        cell.price.text = myprices[myplanids[indexPath.row]]
-        cell.author.text = myauthor[myplanids[indexPath.row]]
-        cell.name.text = mytitles[myplanids[indexPath.row]]
-        cell.mainimage.image = myplanimages[myplanids[indexPath.row]]
-        cell.tapdownload.addTarget(self, action: #selector(MyPlansViewController.tapNext(_:)), for: UIControl.Event.touchUpInside)
-
-        cell.selectionStyle = .none
-
+            cell.layer.cornerRadius = 5.0
+            cell.layer.masksToBounds = true
+            cell.dark.layer.cornerRadius = 5.0
+            cell.dark.layer.masksToBounds = true
+            cell.plancover.image = images[planids[indexPath.row]]
+            cell.plancover.layer.cornerRadius = 5.0
+            cell.plancover.layer.masksToBounds = true
+            cell.titlelabel.text = titles[planids[indexPath.row]]
+            cell.reviewcount.text = "(\(reviews[planids[indexPath.row]]!))"
+            cell.authorname.text = authors[planids[indexPath.row]]
+            cell.newprice.text = prices[planids[indexPath.row]]
+            let attributeString : NSMutableAttributedString =  NSMutableAttributedString(string: "$199.99")
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
             
+            cell.oldprice.attributedText = attributeString
+//        selected = index
+        cell.tapdownload.addTarget(self, action: #selector(MyPlansViewController.tapNext(_:)), for: UIControl.Event.touchUpInside)
         cell.tapdownload.tag = indexPath.row
+
+            return cell
+            
             
         }
-        return cell
+
         
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            
+            let generator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.impactOccurred()
+            
+            if let url = NSURL(string: myplanlinks[myplanids[indexPath.row]]!
+                ) {
+                UIApplication.shared.openURL(url as URL)
+            }
     }
     
     
-    @IBOutlet weak var tableView: UITableView!
 
     
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBAction func tapNext(_ sender: AnyObject?) {
         
         var selected = sender!.tag
@@ -60,10 +78,10 @@ class MyPlansViewController: UIViewController, UITableViewDataSource, UITableVie
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.impactOccurred()
         
-        if let url = NSURL(string: myplanlinks[myplanids[selected!]]!
-            ) {
-            UIApplication.shared.openURL(url as URL)
-        }
+//        if let url = NSURL(string: myplanlinks[myplanids[selected!]]!
+//            ) {
+//            UIApplication.shared.openURL(url as URL)
+//        }
         
         DispatchQueue.main.async {
             let url = URL(string: myplanlinks[myplanids[selected!]]!)
@@ -193,7 +211,7 @@ class MyPlansViewController: UIViewController, UITableViewDataSource, UITableVie
                 
                 if functioncounter == myplanids.count {
                     
-                    self.tableView.reloadData()
+                    self.collectionView.reloadData()
                     
                 }
                 

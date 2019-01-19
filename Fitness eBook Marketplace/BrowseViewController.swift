@@ -307,6 +307,7 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Plans", for: indexPath) as! PlansCollectionViewCell
             
+//            cell.tapdownload.alpha = 0
             cell.layer.cornerRadius = 5.0
             cell.layer.masksToBounds = true
             cell.dark.layer.cornerRadius = 5.0
