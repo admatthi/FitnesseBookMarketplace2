@@ -17,5 +17,6 @@ class PlansCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titlelabel: UILabel!
     @IBOutlet weak var plancover: UIImageView!
     
+    @IBOutlet weak var dark: UIImageView!
     @IBOutlet weak var reviewsimgae: UIImageView!
 }

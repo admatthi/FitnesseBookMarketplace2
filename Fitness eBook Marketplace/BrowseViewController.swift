@@ -62,7 +62,8 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
         genres.append("Gain Strength")
         collectionView1.reloadData()
         selectedgenre = genres[0]
-
+        activityIndicator.alpha = 1
+        activityIndicator.startAnimating()
         queryforids { () -> () in
             
             self.queryforreviewinfo()
@@ -181,6 +182,7 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
                 
                 if functioncounter == planids.count {
                     
+                    self.collectionView.alpha = 1
                     self.activityIndicator.alpha = 0
                     self.collectionView.reloadData()
                     
@@ -230,11 +232,10 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
             
             collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
             
-            
+            collectionView.alpha = 0
             
             if selectedindex == 0 {
                 
-                collectionView.alpha = 0
                 
                 activityIndicator.startAnimating()
                 activityIndicator.alpha = 1
@@ -306,7 +307,13 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Plans", for: indexPath) as! PlansCollectionViewCell
             
+            cell.layer.cornerRadius = 5.0
+            cell.layer.masksToBounds = true
+            cell.dark.layer.cornerRadius = 5.0
+            cell.dark.layer.masksToBounds = true
             cell.plancover.image = images[planids[indexPath.row]]
+            cell.plancover.layer.cornerRadius = 5.0
+            cell.plancover.layer.masksToBounds = true
             cell.titlelabel.text = titles[planids[indexPath.row]]
             cell.reviewcount.text = "(\(reviews[planids[indexPath.row]]!))"
             cell.authorname.text = authors[planids[indexPath.row]]
@@ -323,7 +330,7 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Categories", for: indexPath) as! GenreCollectionViewCell
 
-        collectionView.alpha = 1
+        
         cell.titlelabel.text = genres[indexPath.row]
         //            cell.titlelabel.sizeToFit()
         

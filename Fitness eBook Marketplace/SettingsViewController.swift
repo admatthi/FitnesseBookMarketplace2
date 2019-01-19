@@ -27,7 +27,7 @@ class SettingsViewController: UIViewController {
     
     try! Auth.auth().signOut()
     
-    self.performSegue(withIdentifier: "SettingsToOverview", sender: self)
+    self.performSegue(withIdentifier: "LogoutMofo", sender: self)
 }
 @IBAction func tapSubscription(_ sender: Any) {
     

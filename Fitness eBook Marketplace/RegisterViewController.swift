@@ -27,30 +27,15 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
         
         self.view.endEditing(true)
 
-        if myfuckingcode == "" {
-            
-            if fn.text != "" && emailtf.text  != "" && passwordtf.text != "" && selected {
-
-                signup()
-
-            } else {
-                
-                errorlabel.alpha = 1
-            }
-            
-        } else {
-        if fn.text != "" && emailtf.text  != "" && passwordtf.text != "" && codetf.text != "" && selected {
+        if emailtf.text  != "" && passwordtf.text != "" {
             
             signup()
-            
+
         } else {
             
-            
             errorlabel.alpha = 1
-            
-            }
-        
         }
+   
     }
     
     func loadthumbnail() {
@@ -108,16 +93,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
                 self.mystring2 = downloadURL.absoluteString
                 
                 
-                ref!.child("Users").child(uid).updateChildValues(["Full Name" : self.fn.text!, "Email" : self.emailtf.text!, "Password" : self.passwordtf.text!, "Code" : self.codetf.text!, "ProPic" : self.mystring2])
-                
-                didpurchase = true
-                
-                DispatchQueue.main.async {
-                    
-                    //                    purchased = true
-                    
-                    self.performSegue(withIdentifier: "LoginToExplore", sender: self)
-                }
+             
                 
             }
         }
@@ -133,12 +109,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
     var selected = Bool()
     @IBOutlet weak var propic: UIImageView!
     func signup() {
-        
-        view.bringSubviewToFront(activityIndicator)
-        
-        loadinglabel.alpha = 0.5
-        activityIndicator.alpha = 1
-        activityIndicator.startAnimating()
+
         
         var email = "\(emailtf.text!)"
         var password = "\(passwordtf.text!)"
@@ -169,8 +140,21 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
                 
 //                ref!.child("Users").child(uid).child("Purchased").child(selectedid).updateChildValues(["Title" : selectedtitle, "Author" : selectedauthor, "Price" : selectedprice])
                 
-                self.loadthumbnail()
-            }
+                ref!.child("Users").child(uid).updateChildValues(["Email" : self.emailtf.text!, "Password" : self.passwordtf.text!])
+                
+                if selectedprice != "" {
+                    
+                    ref!.child("Users").child(uid).child("Purchased").child(selectedid).updateChildValues(["Title" : selectedtitle, "Author" : selectedauthor, "Price" : selectedprice, "Link" : selectedlink, "Image" : selectedimagelink])
+
+                }
+                didpurchase = true
+                
+                DispatchQueue.main.async {
+                    
+                    //                    purchased = true
+                    
+                    self.performSegue(withIdentifier: "LoginToExplore", sender: self)
+                }            }
             
         }
         
@@ -212,12 +196,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        propic.layer.cornerRadius = propic.frame.height/2
-selected = false
-        propic.clipsToBounds = true
-        
-        loadinglabel.alpha = 0
-        activityIndicator.alpha = 0
+//        propic.layer.cornerRadius = propic.frame.height/2
+//selected = false
+//        propic.clipsToBounds = true
+//
+//        loadinglabel.alpha = 0
+//        activityIndicator.alpha = 0
         
         // Do any additional setup after loading the view.
         
@@ -233,29 +217,29 @@ selected = false
         ref = Database.database().reference()
         
         emailtf.delegate = self
-        codetf.delegate = self
-        fn.delegate = self
+//        codetf.delegate = self
+//        fn.delegate = self
         passwordtf.delegate = self
-        fn.becomeFirstResponder()
+        emailtf.becomeFirstResponder()
         //        tapcreate.layer.cornerRadius = 22.0
         //        tapcreate.layer.masksToBounds = true
         
         errorlabel.alpha = 0
       
         ref = Database.database().reference()
-
-        ref?.child("Code").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            var value = snapshot.value as? NSDictionary
-            
-            
-            
-            if var author2 = value?["Code"] as? String {
-                self.myfuckingcode = author2
-                
-            }
-            
-        })
+//
+//        ref?.child("Code").observeSingleEvent(of: .value, with: { (snapshot) in
+//            
+//            var value = snapshot.value as? NSDictionary
+//            
+//            
+//            
+//            if var author2 = value?["Code"] as? String {
+//                self.myfuckingcode = author2
+//                
+//            }
+//            
+//        })
         
         // Do any additional setup after loading the view.
     }

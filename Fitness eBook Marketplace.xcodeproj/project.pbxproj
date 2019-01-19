@@ -653,7 +653,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 73B0FA0C338F0480E5285B18 /* Pods-Fitness eBook Marketplace.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-4";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 797Q3HJ5U5;
 				INFOPLIST_FILE = "Fitness eBook Marketplace/Info.plist";
@@ -673,7 +673,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 02AE29BBAE2F553ADAC65D22 /* Pods-Fitness eBook Marketplace.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-4";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 797Q3HJ5U5;
 				INFOPLIST_FILE = "Fitness eBook Marketplace/Info.plist";
