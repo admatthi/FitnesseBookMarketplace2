@@ -14,6 +14,7 @@ pod 'Cheers'
 pod 'FirebaseAuth'
 pod 'FirebaseDatabase'
 pod 'IQKeyboardManager'
+pod 'Firebase/DynamicLinks'
 
 pod 'UXCam'
 pod 'Purchases'

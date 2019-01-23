@@ -24,7 +24,9 @@ class ProductOverviewViewController: UIViewController, UITableViewDelegate, UITa
         
         return 1
     }
+    @IBOutlet weak var background: UILabel!
     
+  
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
@@ -35,8 +37,9 @@ class ProductOverviewViewController: UIViewController, UITableViewDelegate, UITa
         cell.c.addCharacterSpacing()
         cell.d.addCharacterSpacing()
         cell.e.addCharacterSpacing()
+        cell.f.text = "REVIEWS (\(selectedreviews))"
         cell.f.addCharacterSpacing()
- 
+        
         
         cell.authorlabel.text = selectedauthor
         cell.mainimage.image = selectedimage
@@ -58,10 +61,26 @@ class ProductOverviewViewController: UIViewController, UITableViewDelegate, UITa
         cell.days.text = dayss
         cell.minutes.text = minutess
         cell.level.text = levels
+        
+        cell.writereview.layer.borderColor = UIColor.black.cgColor
+        cell.writereview.layer.borderWidth = 1.0
+        
+        if Auth.auth().currentUser == nil {
+            
+            cell.writereview.alpha  = 0
+            
+        }  else {
+         
+            cell.writereview.alpha  = 1
+        }
         return cell
     }
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func tapBack(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBOutlet weak var newprice: UILabel!
     
         var purchases = RCPurchases(apiKey: "jLMuZLatPMLmTSoFKkaVNnTyXyAqYuaP")
@@ -77,6 +96,67 @@ class ProductOverviewViewController: UIViewController, UITableViewDelegate, UITa
             
             
         }
+        
+    }
+    
+    func queryforshare() {
+        
+
+                
+                ref?.child("Plans").child(selectedgenre).child(selectedid).observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                    var value = snapshot.value as? NSDictionary
+                    
+                    
+                    
+                    if var author2 = value?["Author"] as? String {
+                        selectedauthor = author2
+                        
+                    }
+                    
+                    if var author2 = value?["Description"] as? String {
+                        
+                        selecteddescription = author2
+                    }
+                    
+                    if var author2 = value?["New Price"] as? String {
+                        selectedprice = author2
+                        
+                    }
+                    
+                    if var author2 = value?["Reviews"] as? String {
+                        selectedreviews = author2
+                        
+                    }
+                    
+                    if var author2 = value?["Link"] as? String {
+                        selectedlink = author2
+                        
+                    }
+                    if var author2 = value?["Title"] as? String {
+                        selectedtitle = author2
+                        
+                    }
+                    
+                    if var profileUrl = value?["Image"] as? String {
+                        // Create a storage reference from the URL
+                        
+                        let url = URL(string: profileUrl)
+                        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                        selectedimage = UIImage(data: data!)!
+                        
+                        self.tableView.reloadData()
+
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                })
+    
+    
         
     }
     
@@ -138,7 +218,11 @@ class ProductOverviewViewController: UIViewController, UITableViewDelegate, UITa
                     
                 }
                 
-              
+                if var author2 = value?["URL"] as? String {
+                    self.selectedshareurl = author2
+                    
+                }
+                
                 
                 if var author2 = value?["Weeks"] as? String {
                     weekss = author2
@@ -161,7 +245,56 @@ class ProductOverviewViewController: UIViewController, UITableViewDelegate, UITa
         })
         
     }
+    
+    var selectedshareurl = String()
                 
+    @IBAction func tapShare(_ sender: Any) {
+        
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        
+        alert.addAction(UIAlertAction(title: "Share This Plan", style: .default, handler: { action in
+            switch action.style{
+            case .default:
+                
+                let text = "\(selectedtitle) on Coach"
+                
+                var image = UIImage()
+//                if thumbnails.count > 0 {
+//
+//                    image = thumbnails[videoids[0]]!
+//
+//                } else {
+//
+//                    image = UIImage(named: "FamLogo")!
+//
+//                }
+//
+                image = selectedimage
+                
+                let myWebsite = NSURL(string: self.selectedshareurl)
+                let shareAll : Array = [myWebsite] as [Any]
+                
+                
+                let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
+                
+                activityViewController.excludedActivityTypes = [UIActivity.ActivityType.print, UIActivity.ActivityType.postToWeibo, UIActivity.ActivityType.addToReadingList, UIActivity.ActivityType.postToVimeo, UIActivity.ActivityType.saveToCameraRoll, UIActivity.ActivityType.assignToContact]
+                
+                activityViewController.popoverPresentationController?.sourceView = self.view
+                self.present(activityViewController, animated: true, completion: nil)
+            case .cancel:
+                print("cancel")
+                
+            case .destructive:
+                print("destructive")
+                
+                
+            }}))
+        present(alert, animated: true)
+        
+        
+    }
     @IBOutlet weak var tapbuy: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -172,7 +305,17 @@ class ProductOverviewViewController: UIViewController, UITableViewDelegate, UITa
         tapbuy.layer.cornerRadius = 22.0
         tapbuy.layer.masksToBounds = true
         queryforreviewinfo()
-        // Do any additional setup after loading the view.
+//        background.layer.shadowRadius = 10.0
+//        background.layer.shadowOpacity = 1.0
+//        background.layer.shadowOffset = CGSize(width: 4, height: 4)
+//        background.layer.masksToBounds = false        // Do any additional setup after loading the view.
+        
+        if selectedauthor == "" {
+            
+            queryforshare()
+        }
+        
+     
     }
     
 

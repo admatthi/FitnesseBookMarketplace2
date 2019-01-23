@@ -101,6 +101,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
     
     var mystring2 = String()
     
+    @IBOutlet weak var fullname: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loadinglabel: UILabel!
     @IBOutlet weak var errorlabel: UILabel!
@@ -140,12 +141,23 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIImagePick
                 
 //                ref!.child("Users").child(uid).child("Purchased").child(selectedid).updateChildValues(["Title" : selectedtitle, "Author" : selectedauthor, "Price" : selectedprice])
                 
-                ref!.child("Users").child(uid).updateChildValues(["Email" : self.emailtf.text!, "Password" : self.passwordtf.text!])
+                var myname = String()
+                if self.fullname.text != "" {
+                    
+                    myname = self.fullname.text!
+                    
+                } else {
+                    
+                    myname = "Private User"
+                }
+                ref!.child("Users").child(uid).updateChildValues(["Email" : self.emailtf.text!, "Password" : self.passwordtf.text!, "Name" : myname])
+                
                 
                 if selectedprice != "" {
                     
                     ref!.child("Users").child(uid).child("Purchased").child(selectedid).updateChildValues(["Title" : selectedtitle, "Author" : selectedauthor, "Price" : selectedprice, "Link" : selectedlink, "Image" : selectedimagelink])
 
+                    
                 }
                 didpurchase = true
                 

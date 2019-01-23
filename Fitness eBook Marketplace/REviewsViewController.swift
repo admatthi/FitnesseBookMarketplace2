@@ -17,6 +17,7 @@ var reviewnames = [String:String]()
 var stars = [String:String]()
 
 class REviewsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var errorlabel: UILabel!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return reviews4.count
@@ -40,6 +41,8 @@ class REviewsViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        errorlabel.alpha = 1
+        tableView.alpha = 0
         ref = Database.database().reference()
         
         queryforids { () -> () in
@@ -50,14 +53,23 @@ class REviewsViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Do any additional setup after loading the view.
     }
+    @IBAction func tapback(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBOutlet weak var tapBack: UIButton!
     
     func queryforids(completed: @escaping (() -> ()) ) {
         
+        dates.removeAll()
+        reviewids.removeAll()
+        reviewnames.removeAll()
+        reviews4.removeAll()
         
         var functioncounter = 0
 
         
-        ref?.child("Plans").child(selectedid).child("Reviews").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref?.child("Plans").child(selectedgenre).child(selectedid).child("ReviewsAll").observeSingleEvent(of: .value, with: { (snapshot) in
             
             var value = snapshot.value as? NSDictionary
             
@@ -66,9 +78,18 @@ class REviewsViewController: UIViewController, UITableViewDataSource, UITableVie
                 for each in snapDict {
                     
                     let ids = each.key
+                    self.errorlabel.alpha = 0
+                    self.tableView.alpha = 1
+                    reviewids.append(ids)
                     
-                    planids.append(ids)
+                    functioncounter += 1
                     
+                    if functioncounter == snapDict.count {
+                        
+                        
+                        completed()
+                        
+                    }
                     
                 }
                 
@@ -83,10 +104,11 @@ class REviewsViewController: UIViewController, UITableViewDataSource, UITableVie
         
         var functioncounter = 0
         
+   
         for each in reviewids {
             
             
-            ref?.child("Plans").child(selectedid).child("Reviews").child(each).observeSingleEvent(of: .value, with: { (snapshot) in
+            ref?.child("Plans").child(selectedgenre).child(selectedid).child("ReviewsAll").child(each).observeSingleEvent(of: .value, with: { (snapshot) in
                 
                 var value = snapshot.value as? NSDictionary
                 
@@ -107,6 +129,7 @@ class REviewsViewController: UIViewController, UITableViewDataSource, UITableVie
                     
                 }
              
+                functioncounter += 1
         
                 
                 if functioncounter == reviewids.count {
@@ -129,5 +152,8 @@ class REviewsViewController: UIViewController, UITableViewDataSource, UITableVie
         // Pass the selected object to the new view controller.
     }
     */
-
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return UITableView.automaticDimension
+    }
 }

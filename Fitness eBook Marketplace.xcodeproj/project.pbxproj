@@ -20,6 +20,7 @@
 		9D306BA721EFBEE4009AD6F8 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D306BA621EFBEE4009AD6F8 /* OverviewViewController.swift */; };
 		9D306BA921EFE9C7009AD6F8 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D306BA821EFE9C7009AD6F8 /* PostsTableViewCell.swift */; };
 		9D306BAB21EFEEBF009AD6F8 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D306BAA21EFEEBE009AD6F8 /* PostViewController.swift */; };
+		9D3CFE1421F80DAD00A3FB07 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3CFE1321F80DAD00A3FB07 /* WriteReviewViewController.swift */; };
 		9D5AA54E21E928C200CF1275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AA54D21E928C200CF1275 /* AppDelegate.swift */; };
 		9D5AA55021E928C200CF1275 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5AA54F21E928C200CF1275 /* ViewController.swift */; };
 		9D5AA55321E928C200CF1275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D5AA55121E928C200CF1275 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		9DCCC56821EE4E47005E25A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9DCCC56721EE4E45005E25A8 /* GoogleService-Info.plist */; };
 		9DCCC56921EE4E48005E25A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9DCCC56721EE4E45005E25A8 /* GoogleService-Info.plist */; };
 		9DCCC56A21EE4E48005E25A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9DCCC56721EE4E45005E25A8 /* GoogleService-Info.plist */; };
+		9DF4EF1421F3DA84007BD016 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF4EF1321F3DA83007BD016 /* StoreKit.framework */; };
 		B397ED4FF78312BCADC41CF6 /* Pods_Fitness_eBook_MarketplaceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6DEFC16AA2FE15ED45615C /* Pods_Fitness_eBook_MarketplaceTests.framework */; };
 		E5E5C666003C750E3F902B22 /* Pods_Fitness_eBook_MarketplaceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D658896B7DE43F45E11300C7 /* Pods_Fitness_eBook_MarketplaceUITests.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +78,7 @@
 		9D306BA621EFBEE4009AD6F8 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		9D306BA821EFE9C7009AD6F8 /* PostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewCell.swift; sourceTree = "<group>"; };
 		9D306BAA21EFEEBE009AD6F8 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		9D3CFE1321F80DAD00A3FB07 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
 		9D5AA54A21E928C200CF1275 /* Fitness eBook Marketplace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fitness eBook Marketplace.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D5AA54D21E928C200CF1275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D5AA54F21E928C200CF1275 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 		9DCCC56321EE4A7E005E25A8 /* CreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardViewController.swift; sourceTree = "<group>"; };
 		9DCCC56521EE4A9E005E25A8 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		9DCCC56721EE4E45005E25A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9DF4EF1321F3DA83007BD016 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		9DF4EF1521F3DA97007BD016 /* Fitness eBook Marketplace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Fitness eBook Marketplace.entitlements"; sourceTree = "<group>"; };
 		A789AF3A8C0FE3D1EE0CDEA0 /* Pods-Fitness eBook MarketplaceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fitness eBook MarketplaceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fitness eBook MarketplaceTests/Pods-Fitness eBook MarketplaceTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7B9BF611B61DA2DA3246E4B /* Pods-Fitness eBook MarketplaceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fitness eBook MarketplaceUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fitness eBook MarketplaceUITests/Pods-Fitness eBook MarketplaceUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D658896B7DE43F45E11300C7 /* Pods_Fitness_eBook_MarketplaceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fitness_eBook_MarketplaceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				456B5192C1AC7323D6525A49 /* Pods_Fitness_eBook_Marketplace.framework in Frameworks */,
+				9DF4EF1421F3DA84007BD016 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +175,7 @@
 		9D5AA54C21E928C200CF1275 /* Fitness eBook Marketplace */ = {
 			isa = PBXGroup;
 			children = (
+				9DF4EF1521F3DA97007BD016 /* Fitness eBook Marketplace.entitlements */,
 				9D5AA54D21E928C200CF1275 /* AppDelegate.swift */,
 				9D7836A121F12D440022D2E0 /* ProductOverviewViewController.swift */,
 				9D2B4F7221E95A7B00478414 /* RegisterViewController.swift */,
@@ -188,6 +195,7 @@
 				9D2B4F7021E95A6900478414 /* WelcomeViewController.swift */,
 				9D2B4F7421E95A8500478414 /* SignInViewController.swift */,
 				9D2B4F6621E9510900478414 /* REviewsViewController.swift */,
+				9D3CFE1321F80DAD00A3FB07 /* WriteReviewViewController.swift */,
 				9D2B4F6821E9511E00478414 /* ReviewTableViewCell.swift */,
 				9DCCC56321EE4A7E005E25A8 /* CreditCardViewController.swift */,
 				9DCCC56521EE4A9E005E25A8 /* CheckoutViewController.swift */,
@@ -220,6 +228,7 @@
 		B5DB5B95C3FE44C764EE2F34 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9DF4EF1321F3DA83007BD016 /* StoreKit.framework */,
 				0CD11ECEFC934589E8832488 /* Pods_Fitness_eBook_Marketplace.framework */,
 				0D6DEFC16AA2FE15ED45615C /* Pods_Fitness_eBook_MarketplaceTests.framework */,
 				D658896B7DE43F45E11300C7 /* Pods_Fitness_eBook_MarketplaceUITests.framework */,
@@ -299,6 +308,14 @@
 				TargetAttributes = {
 					9D5AA54921E928C200CF1275 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 					9D5AA55D21E928C600CF1275 = {
 						CreatedOnToolsVersion = 10.1;
@@ -472,6 +489,7 @@
 				9DCCC56621EE4A9E005E25A8 /* CheckoutViewController.swift in Sources */,
 				9D2B4F7121E95A6900478414 /* WelcomeViewController.swift in Sources */,
 				9D306BAB21EFEEBF009AD6F8 /* PostViewController.swift in Sources */,
+				9D3CFE1421F80DAD00A3FB07 /* WriteReviewViewController.swift in Sources */,
 				9D2B4F7321E95A7B00478414 /* RegisterViewController.swift in Sources */,
 				9DCCC56421EE4A7E005E25A8 /* CreditCardViewController.swift in Sources */,
 				9D2B4F6521E9500A00478414 /* OverviewTableViewCell.swift in Sources */,
@@ -654,6 +672,7 @@
 			baseConfigurationReference = 73B0FA0C338F0480E5285B18 /* Pods-Fitness eBook Marketplace.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-4";
+				CODE_SIGN_ENTITLEMENTS = "Fitness eBook Marketplace/Fitness eBook Marketplace.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 797Q3HJ5U5;
 				INFOPLIST_FILE = "Fitness eBook Marketplace/Info.plist";
@@ -674,6 +693,7 @@
 			baseConfigurationReference = 02AE29BBAE2F553ADAC65D22 /* Pods-Fitness eBook Marketplace.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-4";
+				CODE_SIGN_ENTITLEMENTS = "Fitness eBook Marketplace/Fitness eBook Marketplace.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 797Q3HJ5U5;
 				INFOPLIST_FILE = "Fitness eBook Marketplace/Info.plist";

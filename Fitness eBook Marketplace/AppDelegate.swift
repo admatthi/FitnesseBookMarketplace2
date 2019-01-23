@@ -17,6 +17,7 @@ import FirebaseMessaging
 import UXCam
 import AVFoundation
 import Purchases
+import FirebaseDynamicLinks
 
 var didpurchase = Bool()
 var tryingtopurchase = Bool()
@@ -154,7 +155,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
     }
         
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        if let incomingURL = userActivity.webpageURL {
+            
+            let linkhandled =  DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
+                
+                if let dynamiclink = dynamiclink, let _ = dynamiclink.url {
+                    
+                    self.handleIncomingDynamicLink(dynamicLink: dynamiclink)
+                }
+                
+                
+            }
+            return linkhandled
+            
+        }
+        
+        return false
+    }
+    
+    func handleIncomingDynamicLink(dynamicLink: DynamicLink) {
+        
+        print("Shit \(dynamicLink.url)")
+        
+        let fileName = dynamicLink.url?.absoluteString
+        let fileArray = fileName?.components(separatedBy: "-")
+        let finalFileName = fileArray?.last
+        let counts = fileArray?.count
+        selectedgenre = fileArray![counts!-1]
+        
+        
+        let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "Product Overview") as UIViewController
+        
+        print(finalFileName)
+        print(selectedid)
 
+        selectedid = finalFileName!.replacingOccurrences(of: "/", with: "", options: NSString.CompareOptions.literal, range: nil)
+        
+        print(finalFileName)
+        print(selectedid)
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = initialViewControlleripad
+        self.window?.makeKeyAndVisible()
+        
+    }
 
 }
 

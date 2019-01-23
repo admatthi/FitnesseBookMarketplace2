@@ -15,6 +15,9 @@ PODS:
     - FirebaseAnalytics (= 5.3.0)
   - Firebase/CoreOnly (5.12.0):
     - FirebaseCore (= 5.1.7)
+  - Firebase/DynamicLinks (5.12.0):
+    - Firebase/CoreOnly
+    - FirebaseDynamicLinks (= 3.1.1)
   - FirebaseAnalytics (5.3.0):
     - FirebaseCore (~> 5.1)
     - FirebaseInstanceID (~> 3.3)
@@ -36,6 +39,10 @@ PODS:
   - FirebaseDatabase (5.0.3):
     - FirebaseCore (~> 5.0)
     - leveldb-library (~> 1.18)
+  - FirebaseDynamicLinks (3.1.1):
+    - FirebaseAnalytics (~> 5.1)
+    - FirebaseAnalyticsInterop (~> 1.0)
+    - FirebaseCore (~> 5.1)
   - FirebaseInstanceID (3.3.0):
     - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.3)
@@ -91,6 +98,7 @@ DEPENDENCIES:
   - Cheers
   - FBSDKCoreKit
   - Firebase
+  - Firebase/DynamicLinks
   - FirebaseAuth
   - FirebaseDatabase
   - FirebaseInstanceID
@@ -112,6 +120,7 @@ SPEC REPOS:
     - FirebaseAuthInterop
     - FirebaseCore
     - FirebaseDatabase
+    - FirebaseDynamicLinks
     - FirebaseInstanceID
     - FirebaseMessaging
     - FirebaseStorage
@@ -136,6 +145,7 @@ SPEC CHECKSUMS:
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
   FirebaseCore: 027d350adc039aa5483357c6f56556f117c5170e
   FirebaseDatabase: e2bcbc106adc4b11a2da3ec2eb63c0c4a44f2f54
+  FirebaseDynamicLinks: 000130a3fc3d81ac7322731b895009f3199ef584
   FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
   FirebaseMessaging: 0f14a264b0d7f867e8eff5d3556bc5d0d4e57888
   FirebaseStorage: 3d22c041370593e639fba013d1eb698a8dae2881
@@ -149,6 +159,6 @@ SPEC CHECKSUMS:
   Purchases: f2d21a0b8a644a22a6ee0f03f52e4a3f95b9d69c
   UXCam: 3f9918b9e83298976d835d929a3ddd149ece08d8
 
-PODFILE CHECKSUM: d0313e7719606f02c4a2636a779a2727b484f233
+PODFILE CHECKSUM: d2c5719574d96b7952997408938bf3c8e045eb36
 
 COCOAPODS: 1.5.3

@@ -24,6 +24,8 @@ var links = [String:String]()
 var prices = [String:String]()
 var imagelinks = [String:String]()
 
+var myblue = UIColor(red:0.15, green:0.86, blue:0.77, alpha:1.0)
+
 var selectedid = String()
 var selectedprice = String()
 var selecteddescription = String()
@@ -44,6 +46,7 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        activityIndicator.color = myblue
         ref = Database.database().reference()
         var screenSize = collectionView.bounds
         var screenWidth = screenSize.width
@@ -76,7 +79,7 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
     
    
     func queryforids(completed: @escaping (() -> ()) ) {
-        
+        collectionView.alpha = 0
         
         var functioncounter = 0
         
@@ -150,11 +153,22 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
                 if var author2 = value?["New Price"] as? String {
                     prices[each] = author2
                     
+                    
+                    
                 }
                 
                 if var author2 = value?["Reviews"] as? String {
                     reviews[each] = author2
                     
+                    if author2 == "0" {
+                        
+                        reviews[each] = "3"
+
+                    } else {
+                        
+                        reviews[each] = author2
+
+                    }
                 }
                 
                 if var author2 = value?["Link"] as? String {
@@ -227,7 +241,8 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
         generator.impactOccurred()
         
         if collectionView.tag == 1 {
-            
+            selectedgenre = genres[indexPath.row]
+
             selectedindex = indexPath.row
             
             collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: true)
@@ -274,7 +289,6 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
             if images.count > 0 {
                 
                 selectedid = planids[indexPath.row]
-                selectedgenre = genres[indexPath.row]
                 selectedimage = images[planids[indexPath.row]]!
                 selectedtitle = titles[planids[indexPath.row]]!
                 selectedauthor = authors[planids[indexPath.row]]!
@@ -308,6 +322,8 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Plans", for: indexPath) as! PlansCollectionViewCell
             
 //            cell.tapdownload.alpha = 0
+            
+            if images.count > indexPath.row {
             cell.layer.cornerRadius = 5.0
             cell.layer.masksToBounds = true
             cell.dark.layer.cornerRadius = 5.0
@@ -324,6 +340,7 @@ class BrowseViewController: UIViewController, UICollectionViewDelegate, UICollec
             
             cell.oldprice.attributedText = attributeString
             
+            }
             return cell
             
         } else {
